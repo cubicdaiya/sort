@@ -3,6 +3,10 @@ function round(num)
    return math.floor(num+.5)
 end
 
+function swap (a, b)
+   
+end
+
 function print_result(arr)
    for i, v in pairs(arr) do
       io.write(v .. " ")

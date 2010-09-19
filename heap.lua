@@ -1,4 +1,6 @@
 
+require("common")
+
 function heap_parent(i)
    return math.floor(i / 2)
 end
@@ -51,7 +53,5 @@ end
 
 a = {4,1,3,2,16,9,10,14,8,7}
 heap_sort(a)
-
-for i=1,#a do
-   print(a[i])
-end
+print_result(a)
+is_sorted(a)

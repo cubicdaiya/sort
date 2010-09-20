@@ -1,57 +1,70 @@
 
 require("common")
 
-function heap_parent(i)
-   return math.floor(i / 2)
-end
+Heap = {}
+function Heap:new (arr)
 
-function heap_left(i)
-   return 2 * i
-end
+   local self = {
+      a = arr,
+      n = #arr
+   }
 
-
-function heap_right(i)
-   return 2 * i + 1
-end
-
-function heap_max_heapify (a, n, i)
-   l = heap_left(i)
-   r = heap_right(i)
-
-   if l <= n and a[l] > a[i] then
-      largest = l
-   else 
-      largest = i
+   function self.parent(self, i)
+      return math.floor(i / 2)
    end
 
-   if r <= n and a[r] > a[largest] then
-      largest = r;
+   function self.left(self, i)
+      return 2 * i
    end
 
-   if largest ~= i then
-      a[i], a[largest] = a[largest], a[i]
-      heap_max_heapify(a, n, largest)
+   function self.right(self, i)
+      return 2 * i + 1
    end
 
+   function self.max_heapify (self, a, i)
+      l = self.left(self, i)
+      r = self.right(self, i)
+      
+      if l <= self.n and a[l] > a[i] then
+         largest = l
+      else 
+         largest = i
+      end
+      
+      if r <= self.n and a[r] > a[largest] then
+         largest = r;
+      end
+      
+      if largest ~= i then
+         a[i], a[largest] = a[largest], a[i]
+         self.max_heapify(self, a, largest)
+      end
+   end
+   
+   function self.build_max_heap (self, a)
+      for i=#a / 2, 1, -1 do
+         self.max_heapify(self, a, i)
+      end
+   end
+
+   function self.sort (self)
+      heap:build_max_heap(self.a)
+      orig = self.n
+      for i=#a, 2, -1  do
+         self.a[1], self.a[i] = self.a[i], self.a[1]
+         self.n = self.n - 1
+         heap:max_heapify(self.a, 1);
+      end
+      self.n = orig
+   end
+
+   return self
 end
 
-function heap_build_max_heap (a)
-   for i=#a / 2, 1, -1 do
-      heap_max_heapify(a, #a, i)
-   end
+if arg[0] == 'heap.lua' then
+   a = {4,1,3,2,16,9,10,14,8,7}
+   heap = Heap:new(a)
+   heap:sort()
+   print_result(a)
+   is_sorted(a)
 end
-
-function heap_sort (a)
-   heap_build_max_heap(a)
-   n = #a
-   for i=#a, 2, -1  do
-      a[1], a[i] = a[i], a[1]
-      n = n - 1
-      heap_max_heapify(a, n, 1);
-   end
-end
-
-a = {4,1,3,2,16,9,10,14,8,7}
-heap_sort(a)
-print_result(a)
-is_sorted(a)

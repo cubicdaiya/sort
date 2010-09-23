@@ -1,15 +1,14 @@
-
 This is the various sort algorithms with Lua.
 
 * insert.lua
- * insert sort
+** insert sort
 * heap.lua
- * heap sort
+** heap sort
 * merge.lua
- * merge sort
+** merge sort
 * quick.lua
- * quick sort
+** quick sort
 * rand_quick.lua
- * quick sort with randomazation
+** quick sort with randomazation
 * cnt.lua
- * counting sort
+** counting sort

@@ -1,9 +1,13 @@
 This is the various sort algorithms with Lua.
 
 * insert.lua
+
 ** insert sort
+
 * heap.lua
+
 ** heap sort
+
 * merge.lua
 ** merge sort
 * quick.lua

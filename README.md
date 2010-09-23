@@ -1,23 +1,23 @@
 This is the various sort algorithms with Lua.
 
-h3. insert.lua
+h3.insert.lua
 
 insert sort
 
-h3. heap.lua
+h3.heap.lua
 
 
 heap sort
 
-h3. merge.lua
+h3.merge.lua
 
 merge sort
 
-h3. quick.lua
+h3.quick.lua
 
 quick sort
 
-h3. rand_quick.lua
+h3.rand_quick.lua
 
 quick sort with randomazation
 

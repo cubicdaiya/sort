@@ -25,8 +25,11 @@ function qsort (a)
    qsort_inner(a, 1, #a)
 end
 
-arr = {10,3,38,5,9,11,22,4,98,10,15,18,19,7}
-print_result(arr)
-qsort(arr)
-print_result(arr)
-is_sorted(arr)
+
+if arg[0] == 'quick.lua' then
+   arr = {10,3,38,5,9,11,22,4,98,10,15,18,19,7}
+   print_result(arr)
+   qsort(arr)
+   print_result(arr)
+   is_sorted(arr)
+end
